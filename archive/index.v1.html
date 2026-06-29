@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Insights GIN MARE Promotion Airport MUC</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__image" aria-hidden="true"></div>
+        <nav class="topbar" aria-label="Report Navigation">
+          <div class="brand"><span class="brand-mark">ucm</span><span>Promotion Intelligence</span></div>
+          <div class="status-pill">Airport MUC</div>
+        </nav>
+        <div class="hero__content">
+          <p class="eyebrow">Kundenreport</p>
+          <h1><span>Insights</span><span>GIN MARE Promotion</span></h1>
+          <p class="subtitle">Airport MUC · Spirits / Tasting Activation</p>
+          <p class="period" id="reportPeriod">Zeitraum wird geladen</p>
+          <p class="summary-text" id="executiveSummary"></p>
+        </div>
+      </header>
+
+      <main>
+        <section class="controls" aria-label="Filter">
+          <div><p class="section-kicker">Interaktive Ansicht</p><h2>Filter</h2></div>
+          <label>Datum von <input type="date" id="dateFrom"></label>
+          <label>Datum bis <input type="date" id="dateTo"></label>
+          <label>Geschlecht <select id="genderFilter"></select></label>
+          <label>Altersgruppe <select id="ageFilter"></select></label>
+          <label>Tastingware <select id="tastingwareFilter"></select></label>
+          <button type="button" id="resetFilters">Zurücksetzen</button>
+        </section>
+
+        <section class="tabs" aria-label="Report Tabs">
+          <button class="tab is-active" data-tab="summary">Summary</button>
+          <button class="tab" data-tab="tasting">Tasting</button>
+          <button class="tab" data-tab="feedback">Feedback</button>
+          <button class="tab" data-tab="raw">Raw Data</button>
+        </section>
+
+        <section class="tab-panel is-active" id="tab-summary">
+          <div class="kpi-grid" id="kpiGrid"></div>
+          <div class="panel-grid">
+            <article class="panel"><p class="section-kicker">Demografie</p><h2>Geschlechterverteilung</h2><div class="chart" id="genderChart"></div></article>
+            <article class="panel"><p class="section-kicker">Demografie</p><h2>Altersgruppen</h2><div class="chart" id="ageChart"></div></article>
+          </div>
+          <div class="panel-grid">
+            <article class="panel"><p class="section-kicker">Aktivierung</p><h2>Tastingware Verfügbarkeit</h2><div class="chart" id="tastingwareChart"></div></article>
+            <article class="panel accent-panel"><p class="section-kicker">Executive Readout</p><h2>Wichtigste Erkenntnisse</h2><div class="insight-list" id="summaryInsights"></div></article>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-tasting">
+          <div class="panel-grid panel-grid--wide">
+            <article class="panel"><p class="section-kicker">Tasting Performance</p><h2>Tastings & Verkäufe pro Tag</h2><div class="chart chart--wide" id="activationChart"></div></article>
+            <article class="panel"><p class="section-kicker">Mix</p><h2>Pur vs. Gin & Tonic</h2><div class="chart" id="shotMixChart"></div></article>
+          </div>
+          <div class="panel-grid">
+            <article class="panel"><p class="section-kicker">Conversion Proxy</p><h2>Stückverkäufe je Tasting</h2><div class="metric-stack" id="conversionInsights"></div></article>
+            <article class="panel"><p class="section-kicker">Auffälligkeiten</p><h2>Tasting Interpretation</h2><div class="insight-list" id="tastingInsights"></div></article>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-feedback">
+          <div class="panel-grid panel-grid--wide">
+            <article class="panel"><p class="section-kicker">Kaufhindernisse</p><h2>Häufigste Gründe gegen Kaufabschluss</h2><div class="chart chart--wide" id="obstacleChart"></div></article>
+            <article class="panel"><p class="section-kicker">Freitext</p><h2>Qualitative Signale</h2><div class="theme-grid" id="feedbackThemes"></div></article>
+          </div>
+          <article class="panel"><p class="section-kicker">Customer Voice</p><h2>Ausgewählte Rückmeldungen</h2><div class="quote-grid" id="feedbackQuotes"></div></article>
+          <article class="panel recommendation-panel"><p class="section-kicker">Insights & Empfehlungen</p><h2>Konkrete Empfehlungen für zukünftige Einsätze</h2><div class="recommendations" id="recommendations"></div></article>
+        </section>
+
+        <section class="tab-panel" id="tab-raw">
+          <article class="panel"><div class="raw-wrap" id="rawWrap" hidden><div class="table-scroll"><table id="rawTable"></table></div><div class="raw-meta" id="rawMeta"></div></div><button class="raw-toggle" type="button" id="rawToggle" aria-expanded="false">Rohdaten anzeigen</button></article>
+        </section>
+      </main>
+    </div>
+    <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+    <script src="data-inline.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
